@@ -20,6 +20,7 @@ We are required to model the demand for shared bikes with the available independ
 * [Technologies Used](#technologies-used)
   
 * [Conclusions](#conclusions)
+  
    Observations from Pariplot
 
 Variables Temp and Atemp is linear/colinear
