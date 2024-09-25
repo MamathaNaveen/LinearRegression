@@ -85,12 +85,20 @@ Final VIF values also looks good. Features VIF
 
   
 Technologies Used
+
 Python - version 3.11.1
+
 Python Numpy - version 1.26.4
+
 Python Pandas - version 2.1.4
+
 Python Matplotlib - version 3.7.3
+
 Python Seaborn - version 0.12.2
+
 Python Statsmodel
+
 Python Sklearn.
+
 Contact
 Created by @MamathaNaveen - feel free to contact us!
