@@ -1,50 +1,68 @@
-Lending Club
-Banks and Finance Companies are often keen to provide various loan schemes such as Housing Loans, Personal Loans, Credit Cards etc. as interest from the loan are one of their primary source of revenue. However, defaulting or non-payment of loans results into potential financial losses for these institutions. Therefore, it is very crucial to assess all risks before approving a loan to an applicant. The main purpose of this project is to identify the key factors behind loan defaults, thereby assisting the company in recognizing risky loan applications for better decision making.
+Problem Statement
 
-README1
+A bike-sharing system is a service in which bikes are made available for shared use to individuals on a short term basis for a price or free. Many bike share systems allow people to borrow a bike from a "dock" which is usually computer-controlled wherein the user enters the payment information, and the system unlocks it. This bike can then be returned to another dock belonging to the same system.
 
-Table of Contents
-General Info
-Technologies Used
-Conclusions
-General Information
-When a person applies for a loan, there are two types of decisions that could be taken by the company:
+A US bike-sharing provider BoomBikes has recently suffered considerable dips in their revenues due to the ongoing Corona pandemic. The company is finding it very difficult to sustain in the current market scenario. So, it has decided to come up with a mindful business plan to be able to accelerate its revenue as soon as the ongoing lockdown comes to an end, and the economy restores to a healthy state.
 
-Loan accepted: If the company approves the loan, there are 3 possible scenarios described below:
+They have contracted a consulting company to understand the factors on which the demand for these shared bikes depends. Specifically, they want to understand the factors affecting the demand for these shared bikes in the American market. The company wants to know:
 
-Fully paid: Applicant has fully paid the loan (the principal and the interest rate)
+Which variables are significant in predicting the demand for shared bikes. How well those variables describe the bike demands
 
-Current: Applicant is in the process of paying the instalments, i.e. the tenure of the loan is not yet completed. These candidates are not labelled as 'defaulted'.
+Business Goal
 
-Charged-off: Applicant has not paid the instalments in due time for a long period of time, i.e. he/she has defaulted on the loan
+We are required to model the demand for shared bikes with the available independent variables. It will be used by the management to understand how exactly the demands vary with different features. They can accordingly manipulate the business strategy to meet the demand levels and meet the customer's expectations. Further, the model will be a good way for management to understand the demand dynamics of a new market.
 
-Loan rejected: The company had rejected the loan (because the candidate does not meet their requirements etc.). Since the loan was rejected, there is no transactional history of those applicants with the company and so this data is not available with the company (and thus in this dataset)
 
-The company wants to understand the driving factors (or driver variables) behind loan default, i.e. the variables which are strong indicators of default. The company can utilise this knowledge for its portfolio and risk assessment.
+## Table of Contents
+* [General Info](#general-information)
+  
+  
+* [Technologies Used](#technologies-used)
+  
+* [Conclusions](#conclusions)
+   Observations from Pariplot
 
-The study identifies how consumer attributes and loan attributes influences the tendency of default.
+Variables Temp and Atemp is linear/colinear
+Variable Cnt increase with increase in temp,atemp variables.
+Less bookings seen with Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds
+Less booking seen when holiday is 1
+Booking count seen increase in 2019 when compared to 2018.
 
-The dataset considered for this study can be found here - https://github.com/MallikaBera/LendingClubCaseStudy/blob/feb436f1e086c5362ff26a3953b0d8e63828805c/loan.zip
+Bivariate Analysis Observations
 
-Conclusions
-Loans approved should have lower interest Rate. Amounts loaned at higher interest rates(typically more than 13.5%) are mostly charged-off.
+2019 increase in number of bookings cnt compared for 2018.
+Less booking seen with Weathersit-3: Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds. Highest bookings seen in Weathersit_1 ie. Clear, Few clouds, Partly cloudy, Partly cloudy
+Gradual increase in bookings seen in 2nd and 3rd quarter for both years.
+HIghest bookings seen when there is Holiday(0) with median lying 4800.
 
-For higher rate of interest, the annual income of the applicant should be high (approx. more than 83K) for a safer decision.
+From Manual Statsmodel built, Multiple Linear Regression Model:
+**r2_score calculations...**
+- **R2 square of Train model = 84.1%**
+- **R2_score of Test model = 80.3%**
+  OLS Regression Results
+  Dep. Variable: cnt R-squared: 0.841
+  Model: OLS Adj. R-squared: 0.837
+  Method: Least Squares F-statistic: 201.7
+  Date: Tue, 24 Sep 2024 Prob (F-statistic): 2.01e-188
+  Time: 12:39:43 Log-Likelihood: -4118.0
+  No. Observations: 510 AIC: 8264.
+  Df Residuals: 496 BIC: 8323.
+  Df Model: 13
+  Covariance Type: nonrobust
+  
+- **Final Model build**
+    cnt = sun*502.5 + oct*298.1 + yr*2025.8 + holiday*-470.38 + workingday*411.19 + temp*4439 + windspeed*-1330.3 + summer*885.75 + winter*1100.9 + Aug*468.8 + sept*1029.96
 
-Amounts for loan subgrades of A & B should be favored over the remaining to reduce charged-offs rates.
+  **Using RFE for automated feature selection**
+  Steps:
+    Importing data, Data exploration, Data Cleanup.
+    Generating Categorical variables.
+    Creating dummy variables.
+    Scaling Numerical values using Min-Max Scaler.
+    BUilding Model using RFE. (Feature selection step=10)
+    Including Statsmodel suggestions if required to improve R2 value is required.
 
-Number of loans defaulted is lesser in count for housing loan customers who owns the house while it is more for the ones with rented or mortgaged properties.
-
-Short term(36 months) loans are defaulted more often than long term loans(60 months).
-
-Investments on Renewable Energy should be increased and Debt Consolidation should be reduced.
-
-Applicants from Canada and NY have more chances to be defaulters.
-
-Credit pull for LCs should continue at the same rate.
-
-Applicants with Low/Moderate Annual Income and more than average to high Debt ratio should be validated carefully before approving the loan application.
-
+  
 Technologies Used
 Python - version 3.11.1
 Python Numpy - version 1.26.4
