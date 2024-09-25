@@ -63,8 +63,25 @@ From Manual Statsmodel built, Multiple Linear Regression Model:
     Scaling Numerical values using Min-Max Scaler.
     BUilding Model using RFE. (Feature selection step=10)
     Including Statsmodel suggestions if required to improve R2 value is required.
+  Adding new features based on previous insights from Manual Statmodel approach
 
-  We have successfully build model which covers 80%+ determines the variance in the dependent variable that can be explained by the independent variable.
+Since we have manually built model with R2=84% covered , I have picked few features('yr','winter','weathersit_3') with increased co-efficent to below set and compared R2 again. We can see that R2 have now increased from 46% to 78%. We will retain this as final model for further testing.
+Now we will remove Nov and Oct step by Step since the p-value was 0.99 and 0.72
+Final List of features (9 selected ): ['holiday','atemp', 'windspeed', 'April','July', 'Sept', 'winter','yr','weathersit_3']
+Final R2 value is 78.8%
+Final Adj. R-squared: 78.3%
+Final VIF values also looks good. Features VIF
+1 atemp 4.12
+2 windspeed 3.03
+7 yr 2.01
+4 July 1.34
+6 winter 1.32
+5 Sept 1.20
+3 April 1.17
+8 weathersit_3 1.06
+0 holiday 1.03
+
+  We have successfully build both models which covers ~80% determines the variance in the dependent variable that can be explained by the independent variable.
 
   
 Technologies Used
@@ -73,5 +90,7 @@ Python Numpy - version 1.26.4
 Python Pandas - version 2.1.4
 Python Matplotlib - version 3.7.3
 Python Seaborn - version 0.12.2
+Python Statsmodel
+Python Sklearn.
 Contact
 Created by @MamathaNaveen - feel free to contact us!
