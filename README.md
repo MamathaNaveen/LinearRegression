@@ -21,7 +21,7 @@ We are required to model the demand for shared bikes with the available independ
   
 * [Conclusions](#conclusions)
   
-   Observations from Pariplot
+Observations from Pariplot
 
 Variables Temp and Atemp is linear/colinear
 Variable Cnt increase with increase in temp,atemp variables.
@@ -36,6 +36,7 @@ Less booking seen with Weathersit-3: Light Snow, Light Rain + Thunderstorm + Sca
 Gradual increase in bookings seen in 2nd and 3rd quarter for both years.
 HIghest bookings seen when there is Holiday(0) with median lying 4800.
 
+Conclusions: 
 From Manual Statsmodel built, Multiple Linear Regression Model:
 **r2_score calculations...**
 - **R2 square of Train model = 84.1%**
@@ -63,6 +64,8 @@ From Manual Statsmodel built, Multiple Linear Regression Model:
     BUilding Model using RFE. (Feature selection step=10)
     Including Statsmodel suggestions if required to improve R2 value is required.
 
+  We have successfully build model which covers 80%+ determines the variance in the dependent variable that can be explained by the independent variable.
+
   
 Technologies Used
 Python - version 3.11.1
@@ -71,4 +74,4 @@ Python Pandas - version 2.1.4
 Python Matplotlib - version 3.7.3
 Python Seaborn - version 0.12.2
 Contact
-Created by @mallikabera and @MamathaNaveen - feel free to contact us!
+Created by @MamathaNaveen - feel free to contact us!
