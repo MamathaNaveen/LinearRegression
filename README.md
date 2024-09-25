@@ -37,20 +37,35 @@ Gradual increase in bookings seen in 2nd and 3rd quarter for both years.
 HIghest bookings seen when there is Holiday(0) with median lying 4800.
 
 Conclusions: 
+
 From Manual Statsmodel built, Multiple Linear Regression Model:
+
 **r2_score calculations...**
+
 - **R2 square of Train model = 84.1%**
+- 
 - **R2_score of Test model = 80.3%**
+  
   OLS Regression Results
+  
   Dep. Variable: cnt R-squared: 0.841
+  
   Model: OLS Adj. R-squared: 0.837
+  
   Method: Least Squares F-statistic: 201.7
+  
   Date: Tue, 24 Sep 2024 Prob (F-statistic): 2.01e-188
+  
   Time: 12:39:43 Log-Likelihood: -4118.0
+  
   No. Observations: 510 AIC: 8264.
+  
   Df Residuals: 496 BIC: 8323.
+  
   Df Model: 13
+  
   Covariance Type: nonrobust
+  
   
 - **Final Model build**
     cnt = sun*502.5 + oct*298.1 + yr*2025.8 + holiday*-470.38 + workingday*411.19 + temp*4439 + windspeed*-1330.3 + summer*885.75 + winter*1100.9 + Aug*468.8 + sept*1029.96
@@ -66,22 +81,37 @@ From Manual Statsmodel built, Multiple Linear Regression Model:
   Adding new features based on previous insights from Manual Statmodel approach
 
 Since we have manually built model with R2=84% covered , I have picked few features('yr','winter','weathersit_3') with increased co-efficent to below set and compared R2 again. We can see that R2 have now increased from 46% to 78%. We will retain this as final model for further testing.
+
 Now we will remove Nov and Oct step by Step since the p-value was 0.99 and 0.72
+
 Final List of features (9 selected ): ['holiday','atemp', 'windspeed', 'April','July', 'Sept', 'winter','yr','weathersit_3']
+
 Final R2 value is 78.8%
+
 Final Adj. R-squared: 78.3%
+
 Final VIF values also looks good. Features VIF
+
 1 atemp 4.12
+
 2 windspeed 3.03
+
 7 yr 2.01
+
 4 July 1.34
+
 6 winter 1.32
+
 5 Sept 1.20
+
 3 April 1.17
+
 8 weathersit_3 1.06
+
 0 holiday 1.03
 
-  We have successfully build both models which covers ~80% determines the variance in the dependent variable that can be explained by the independent variable.
+
+We have successfully build both models which covers ~80% determines the variance in the dependent variable that can be explained by the independent variable.
 
   
 Technologies Used
